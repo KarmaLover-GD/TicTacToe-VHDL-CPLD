@@ -1,0 +1,11 @@
+Fitter Status : Successful - Wed May 11 18:19:18 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : Tictactoe
+Top-level Entity Name : Tictactoe
+Family : MAX V
+Device : 5M160ZE64C5
+Timing Models : Final
+Total logic elements : 145 / 160 ( 91 % )
+Total pins : 24 / 54 ( 44 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

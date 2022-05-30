@@ -1,0 +1,536 @@
+Timing Analyzer report for Tictactoe
+Wed May 11 18:19:22 2022
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Hold: 'clk'
+ 13. Setup Transfers
+ 14. Hold Transfers
+ 15. Report TCCS
+ 16. Report RSKM
+ 17. Unconstrained Paths Summary
+ 18. Clock Status Summary
+ 19. Unconstrained Input Ports
+ 20. Unconstrained Output Ports
+ 21. Unconstrained Input Ports
+ 22. Unconstrained Output Ports
+ 23. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; Tictactoe                                           ;
+; Device Family         ; MAX V                                               ;
+; Device Name           ; 5M160ZE64C5                                         ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 46.41 MHz ; 46.41 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Setup Summary                   ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; clk   ; -20.547 ; -774.725      ;
++-------+---------+---------------+
+
+
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 3.363 ; 0.000         ;
++-------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -2.289 ; -2.289        ;
++-------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                      ;
++---------+----------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node      ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+----------------+------------------+--------------+-------------+--------------+------------+------------+
+; -20.547 ; grid[7][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 21.226     ;
+; -19.789 ; grid[6][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 20.468     ;
+; -19.578 ; grid[7][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 20.257     ;
+; -19.402 ; grid[8][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 20.081     ;
+; -19.104 ; grid[1][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 19.783     ;
+; -19.067 ; y[2]           ; matrix[0][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 19.746     ;
+; -19.053 ; grid[2][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 19.732     ;
+; -19.022 ; grid[4][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 19.701     ;
+; -18.514 ; matrix[1][1]   ; grid[6][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.193     ;
+; -18.511 ; matrix[1][1]   ; grid[6][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.190     ;
+; -18.455 ; matrix[1][1]   ; grid[7][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.134     ;
+; -18.454 ; matrix[1][1]   ; grid[7][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.133     ;
+; -18.407 ; grid[6][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 19.086     ;
+; -18.401 ; matrix[3][3]   ; grid[6][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.080     ;
+; -18.398 ; matrix[3][3]   ; grid[6][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.077     ;
+; -18.382 ; state.reset_st ; grid[1][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.061     ;
+; -18.342 ; matrix[3][3]   ; grid[7][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.021     ;
+; -18.341 ; matrix[3][3]   ; grid[7][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 19.020     ;
+; -18.007 ; grid[8][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 18.686     ;
+; -17.935 ; grid[2][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 18.614     ;
+; -17.935 ; grid[4][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 18.614     ;
+; -17.901 ; y[2]           ; matrix[2][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.580     ;
+; -17.897 ; y[2]           ; matrix[3][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.576     ;
+; -17.875 ; matrix[3][1]   ; grid[6][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.554     ;
+; -17.872 ; matrix[3][1]   ; grid[6][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.551     ;
+; -17.861 ; y[2]           ; matrix[4][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.540     ;
+; -17.857 ; y[2]           ; matrix[4][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.536     ;
+; -17.848 ; y[2]           ; matrix[5][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.527     ;
+; -17.816 ; matrix[3][1]   ; grid[7][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.495     ;
+; -17.815 ; matrix[3][1]   ; grid[7][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.494     ;
+; -17.727 ; y[2]           ; matrix[2][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.406     ;
+; -17.695 ; matrix[1][3]   ; grid[6][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.374     ;
+; -17.692 ; matrix[1][3]   ; grid[6][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.371     ;
+; -17.677 ; y[2]           ; matrix[4][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.356     ;
+; -17.636 ; matrix[1][3]   ; grid[7][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.315     ;
+; -17.635 ; matrix[1][3]   ; grid[7][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 18.314     ;
+; -17.514 ; grid[5][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 18.193     ;
+; -17.512 ; x[1]           ; matrix[0][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.191     ;
+; -17.402 ; y[2]           ; matrix[3][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.081     ;
+; -17.377 ; y[2]           ; matrix[0][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.056     ;
+; -17.357 ; y[2]           ; matrix[2][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 18.036     ;
+; -17.237 ; state.reset_st ; matrix[1][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 17.916     ;
+; -17.236 ; y[2]           ; matrix[5][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 17.915     ;
+; -17.233 ; y[2]           ; matrix[1][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 17.912     ;
+; -17.049 ; matrix[5][3]   ; grid[6][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.728     ;
+; -17.046 ; matrix[5][3]   ; grid[6][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.725     ;
+; -16.990 ; matrix[5][3]   ; grid[7][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.669     ;
+; -16.989 ; matrix[5][3]   ; grid[7][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.668     ;
+; -16.955 ; grid[3][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 17.634     ;
+; -16.927 ; matrix[1][3]   ; grid[3][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.606     ;
+; -16.917 ; matrix[1][3]   ; grid[3][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.596     ;
+; -16.872 ; state.reset_st ; grid[8][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.551     ;
+; -16.709 ; y[1]           ; matrix[0][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 17.388     ;
+; -16.688 ; matrix[1][1]   ; grid[5][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.367     ;
+; -16.615 ; grid[5][1]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 17.294     ;
+; -16.601 ; grid[1][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 17.280     ;
+; -16.591 ; matrix[1][1]   ; grid[0][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.270     ;
+; -16.585 ; matrix[1][1]   ; grid[0][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.264     ;
+; -16.553 ; matrix[1][3]   ; grid[4][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.232     ;
+; -16.551 ; matrix[1][3]   ; grid[4][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.230     ;
+; -16.521 ; matrix[5][1]   ; grid[3][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.200     ;
+; -16.511 ; matrix[5][1]   ; grid[3][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 17.190     ;
+; -16.353 ; grid[3][0]     ; victory_led~reg0 ; clk          ; clk         ; 1.000        ; 0.000      ; 17.032     ;
+; -16.304 ; x[1]           ; matrix[4][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.983     ;
+; -16.300 ; x[1]           ; matrix[4][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.979     ;
+; -16.295 ; x[1]           ; matrix[5][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.974     ;
+; -16.291 ; y[2]           ; matrix[0][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.970     ;
+; -16.288 ; y[2]           ; matrix[1][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.967     ;
+; -16.217 ; matrix[1][1]   ; x[2]             ; clk          ; clk         ; 1.000        ; 0.000      ; 16.896     ;
+; -16.213 ; matrix[1][1]   ; y[1]             ; clk          ; clk         ; 1.000        ; 0.000      ; 16.892     ;
+; -16.205 ; matrix[1][1]   ; grid[8][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.884     ;
+; -16.205 ; matrix[1][1]   ; grid[8][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.884     ;
+; -16.157 ; matrix[1][1]   ; state.reset_st   ; clk          ; clk         ; 1.000        ; 0.000      ; 16.836     ;
+; -16.143 ; matrix[1][1]   ; state.play       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.822     ;
+; -16.124 ; x[1]           ; matrix[4][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.803     ;
+; -16.092 ; matrix[3][3]   ; grid[8][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.771     ;
+; -16.092 ; matrix[3][3]   ; grid[8][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.771     ;
+; -16.055 ; state.display  ; matrix[0][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.734     ;
+; -16.051 ; state.display  ; matrix[2][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.730     ;
+; -16.049 ; matrix[3][1]   ; grid[5][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.728     ;
+; -16.045 ; x[1]           ; matrix[2][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.724     ;
+; -16.044 ; matrix[3][3]   ; state.reset_st   ; clk          ; clk         ; 1.000        ; 0.000      ; 16.723     ;
+; -16.041 ; state.display  ; matrix[4][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.720     ;
+; -16.041 ; x[1]           ; matrix[3][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.720     ;
+; -16.034 ; state.display  ; matrix[4][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.713     ;
+; -16.030 ; matrix[3][3]   ; state.play       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.709     ;
+; -15.871 ; matrix[1][3]   ; x[1]             ; clk          ; clk         ; 1.000        ; 0.000      ; 16.550     ;
+; -15.732 ; matrix[5][1]   ; grid[6][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.411     ;
+; -15.729 ; matrix[5][1]   ; grid[6][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.408     ;
+; -15.723 ; x[2]           ; matrix[0][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.402     ;
+; -15.721 ; x[2]           ; matrix[2][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.400     ;
+; -15.717 ; x[2]           ; matrix[3][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.396     ;
+; -15.684 ; x[1]           ; matrix[0][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.363     ;
+; -15.683 ; x[1]           ; matrix[5][5]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.362     ;
+; -15.678 ; x[1]           ; matrix[1][3]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.357     ;
+; -15.673 ; matrix[5][1]   ; grid[7][1]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.352     ;
+; -15.672 ; matrix[5][1]   ; grid[7][0]       ; clk          ; clk         ; 1.000        ; 0.000      ; 16.351     ;
+; -15.665 ; y[2]           ; matrix[5][1]     ; clk          ; clk         ; 1.000        ; 0.000      ; 16.344     ;
+; -15.578 ; matrix[3][1]   ; x[2]             ; clk          ; clk         ; 1.000        ; 0.000      ; 16.257     ;
+; -15.574 ; matrix[3][1]   ; y[1]             ; clk          ; clk         ; 1.000        ; 0.000      ; 16.253     ;
++---------+----------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                        ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 3.363  ; row_counter[2]   ; row_counter[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 3.402      ;
+; 3.375  ; row_counter[0]   ; row_counter[0]   ; clk          ; clk         ; 0.000        ; 0.000      ; 3.414      ;
+; 4.231  ; matrix[5][1]     ; x[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 4.270      ;
+; 4.835  ; grid[2][1]       ; grid[2][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 4.874      ;
+; 4.856  ; matrix[1][3]     ; matrix[1][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 4.895      ;
+; 4.858  ; matrix[5][3]     ; matrix[5][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 4.897      ;
+; 5.228  ; matrix[5][5]     ; matrix[5][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.267      ;
+; 5.230  ; row_counter[1]   ; row_counter[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 5.269      ;
+; 5.273  ; matrix[5][1]     ; matrix[5][1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.312      ;
+; 5.312  ; matrix[1][5]     ; matrix[1][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.351      ;
+; 5.314  ; grid[6][0]       ; grid[6][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.353      ;
+; 5.416  ; matrix[2][1]     ; matrix[2][1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.455      ;
+; 5.417  ; matrix[0][3]     ; matrix[0][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.456      ;
+; 5.441  ; grid[5][1]       ; grid[5][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.480      ;
+; 5.442  ; grid[0][1]       ; grid[0][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.481      ;
+; 5.453  ; row_counter[0]   ; row_counter[1]   ; clk          ; clk         ; 0.000        ; 0.000      ; 5.492      ;
+; 5.453  ; grid[1][0]       ; grid[1][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.492      ;
+; 5.461  ; grid[5][0]       ; grid[5][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.500      ;
+; 5.466  ; state.check      ; state.check      ; clk          ; clk         ; 0.000        ; 0.000      ; 5.505      ;
+; 5.467  ; grid[6][1]       ; grid[6][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.506      ;
+; 5.468  ; matrix[0][5]     ; matrix[0][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.507      ;
+; 5.468  ; state.check      ; state.play       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.507      ;
+; 5.488  ; matrix[3][5]     ; matrix[3][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.527      ;
+; 5.496  ; grid[3][0]       ; grid[3][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.535      ;
+; 5.509  ; matrix[4][5]     ; matrix[4][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.548      ;
+; 5.510  ; matrix[4][1]     ; matrix[4][1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 5.549      ;
+; 5.531  ; grid[4][0]       ; grid[4][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 5.570      ;
+; 5.705  ; state.play       ; state.check      ; clk          ; clk         ; 0.000        ; 0.000      ; 5.744      ;
+; 5.819  ; matrix[5][1]     ; y[1]             ; clk          ; clk         ; 0.000        ; 0.000      ; 5.858      ;
+; 5.965  ; row_counter[1]   ; row_counter[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 6.004      ;
+; 6.177  ; grid[7][0]       ; grid[7][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 6.216      ;
+; 6.392  ; grid[1][1]       ; grid[1][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 6.431      ;
+; 6.451  ; grid[2][0]       ; grid[2][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 6.490      ;
+; 6.455  ; row_counter[0]   ; row_counter[2]   ; clk          ; clk         ; 0.000        ; 0.000      ; 6.494      ;
+; 6.472  ; state.display    ; matrix[1][1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 6.511      ;
+; 6.491  ; state.display    ; matrix[3][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 6.530      ;
+; 6.496  ; state.display    ; state.check      ; clk          ; clk         ; 0.000        ; 0.000      ; 6.535      ;
+; 6.499  ; state.display    ; matrix[5][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 6.538      ;
+; 6.511  ; matrix[3][1]     ; matrix[3][1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 6.550      ;
+; 6.536  ; grid[7][1]       ; grid[7][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 6.575      ;
+; 6.559  ; grid[3][1]       ; grid[3][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 6.598      ;
+; 6.607  ; matrix[2][5]     ; matrix[2][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 6.646      ;
+; 6.630  ; grid[8][0]       ; grid[8][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 6.669      ;
+; 6.805  ; matrix[3][3]     ; matrix[3][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 6.844      ;
+; 7.140  ; state.reset_st   ; matrix[0][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 7.179      ;
+; 7.216  ; state.display    ; matrix[1][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 7.255      ;
+; 7.217  ; state.display    ; matrix[5][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 7.256      ;
+; 7.302  ; state.play       ; state.play       ; clk          ; clk         ; 0.000        ; 0.000      ; 7.341      ;
+; 7.316  ; state.play       ; state.reset_st   ; clk          ; clk         ; 0.000        ; 0.000      ; 7.355      ;
+; 8.195  ; grid[4][1]       ; grid[4][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.234      ;
+; 8.277  ; grid[0][0]       ; grid[0][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.316      ;
+; 8.300  ; state.display    ; matrix[0][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.339      ;
+; 8.341  ; matrix[3][5]     ; state.display    ; clk          ; clk         ; 0.000        ; 0.000      ; 8.380      ;
+; 8.348  ; state.display    ; matrix[3][1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.387      ;
+; 8.353  ; state.display    ; player           ; clk          ; clk         ; 0.000        ; 0.000      ; 8.392      ;
+; 8.445  ; state.reset_st   ; matrix[1][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.484      ;
+; 8.447  ; state.reset_st   ; matrix[5][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.486      ;
+; 8.454  ; grid[0][1]       ; victory_led~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 8.493      ;
+; 8.498  ; player           ; player           ; clk          ; clk         ; 0.000        ; 0.000      ; 8.537      ;
+; 8.499  ; state.display    ; matrix[1][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.538      ;
+; 8.501  ; player           ; grid[3][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.540      ;
+; 8.504  ; state.display    ; matrix[3][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.543      ;
+; 8.676  ; grid[0][0]       ; victory_led~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 8.715      ;
+; 8.686  ; matrix[0][1]     ; matrix[0][1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.725      ;
+; 8.689  ; state.reset_st   ; matrix[2][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.728      ;
+; 8.726  ; matrix[3][1]     ; x[1]             ; clk          ; clk         ; 0.000        ; 0.000      ; 8.765      ;
+; 8.727  ; state.play       ; grid[8][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.766      ;
+; 8.727  ; state.play       ; grid[5][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.766      ;
+; 8.727  ; state.play       ; grid[0][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.766      ;
+; 8.803  ; matrix[4][3]     ; matrix[4][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 8.842      ;
+; 8.844  ; state.play       ; grid[0][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.883      ;
+; 8.848  ; state.play       ; grid[8][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 8.887      ;
+; 8.886  ; state.check      ; victory_led~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 8.925      ;
+; 8.963  ; matrix[5][1]     ; state.display    ; clk          ; clk         ; 0.000        ; 0.000      ; 9.002      ;
+; 8.995  ; matrix[5][3]     ; y[1]             ; clk          ; clk         ; 0.000        ; 0.000      ; 9.034      ;
+; 9.079  ; victory_led~reg0 ; victory_led~reg0 ; clk          ; clk         ; 0.000        ; 0.000      ; 9.118      ;
+; 9.106  ; state.reset_st   ; matrix[3][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 9.145      ;
+; 9.116  ; state.reset_st   ; state.play       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.155      ;
+; 9.119  ; player           ; grid[2][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.158      ;
+; 9.126  ; matrix[5][5]     ; state.display    ; clk          ; clk         ; 0.000        ; 0.000      ; 9.165      ;
+; 9.172  ; state.reset_st   ; grid[8][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.211      ;
+; 9.177  ; state.reset_st   ; grid[0][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.216      ;
+; 9.312  ; state.play       ; grid[4][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.351      ;
+; 9.339  ; matrix[1][5]     ; state.display    ; clk          ; clk         ; 0.000        ; 0.000      ; 9.378      ;
+; 9.348  ; state.play       ; grid[5][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.387      ;
+; 9.398  ; matrix[5][1]     ; grid[5][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.437      ;
+; 9.622  ; matrix[5][3]     ; grid[5][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.661      ;
+; 9.657  ; matrix[1][3]     ; x[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 9.696      ;
+; 9.664  ; matrix[1][3]     ; y[1]             ; clk          ; clk         ; 0.000        ; 0.000      ; 9.703      ;
+; 9.766  ; state.play       ; grid[3][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.805      ;
+; 9.849  ; state.display    ; matrix[2][5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 9.888      ;
+; 9.888  ; state.play       ; grid[3][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 9.927      ;
+; 10.033 ; matrix[2][3]     ; matrix[2][3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 10.072     ;
+; 10.060 ; matrix[5][1]     ; y[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 10.099     ;
+; 10.066 ; matrix[5][5]     ; grid[8][0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 10.105     ;
+; 10.066 ; matrix[5][5]     ; grid[8][1]       ; clk          ; clk         ; 0.000        ; 0.000      ; 10.105     ;
+; 10.232 ; matrix[5][5]     ; state.check      ; clk          ; clk         ; 0.000        ; 0.000      ; 10.271     ;
+; 10.280 ; matrix[5][3]     ; state.display    ; clk          ; clk         ; 0.000        ; 0.000      ; 10.319     ;
+; 10.363 ; matrix[3][3]     ; x[2]             ; clk          ; clk         ; 0.000        ; 0.000      ; 10.402     ;
+; 10.370 ; matrix[3][3]     ; y[1]             ; clk          ; clk         ; 0.000        ; 0.000      ; 10.409     ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 501      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 501      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 10    ; 10   ;
+; Unconstrained Input Port Paths  ; 165   ; 165  ;
+; Unconstrained Output Ports      ; 13    ; 13   ;
+; Unconstrained Output Port Paths ; 73    ; 73   ;
++---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; buttons[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[8] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; cols[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; victory_led ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; buttons[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; buttons[8] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; cols[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; cols[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; rows[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; victory_led ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed May 11 18:19:21 2022
+Info: Command: quartus_sta Tictactoe -c Tictactoe
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Tictactoe.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -20.547
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -20.547            -774.725 clk 
+Info (332146): Worst-case hold slack is 3.363
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     3.363               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4668 megabytes
+    Info: Processing ended: Wed May 11 18:19:22 2022
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

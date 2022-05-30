@@ -1,0 +1,8 @@
+
+State Machine - |Tictactoe|state
+Name state.check state.display state.play state.init state.reset_st 
+state.reset_st 0 0 0 0 0 
+state.init 0 0 0 1 1 
+state.play 0 0 1 0 1 
+state.display 0 1 0 0 1 
+state.check 1 0 0 0 1 

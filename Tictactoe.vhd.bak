@@ -1,0 +1,15 @@
+library ieee ;
+use ieee.std_logic_1164.all ;
+
+entity cardio is
+  port
+	(-- Input ports
+    clk       : in  std_logic ;
+    heart     : in  std_logic ;
+    -- Output ports
+    led_fast  : buffer std_logic ;
+    led_slow  : buffer std_logic  ;
+	 led_middle : buffer std_logic );
+	 
+	 
+end entity cardio ;
